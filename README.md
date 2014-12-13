@@ -1,7 +1,7 @@
 CPHL
 ====
 
-CPHL, or the Cross-Platform Hypertext Language is a hypertext specification for RESTful APIs.  CPHL is based on HAL, but is designed to allow for greater flexibility, transmission of additional information, and empowerment of resource specific code on demand.
+CPHL, or the Cross-Platform Hypertext Language is a hypertext specification for RESTful APIs.  CPHL best described as an extension of HAL, but is designed to allow for greater flexibility, transmission of additional information, and empowerment of resource specific code on demand.
 
 It is also designed to be action driven, rather than resource driven.  This means that a resource may be included multiple times if necessary (ie edit, delete), but described by it's title, description, and the methods it utilizes - making it more explicit than other formats.
 
@@ -27,7 +27,7 @@ The _definition collection breaks down into key value pairs where the name of th
 ```
 
 <h4>_links</h4>
-_links contains the hypertext links collection utilizing the action as the key.
+_links contains the hypertext links collection utilizing the action as the key for easy deserialization and quick access.
 
 Each individual link contains the following structure (optional constraints italic):
 - *title*: the title of the action (eg: Edit User)
@@ -152,3 +152,8 @@ _links:
       java: http://code.domain.com/javalib/edit.tgz
       ruby: http://code.domain.com/rubylib/edit.tgz
 ```
+
+<h3>Clients and Cross-Compatiblity</h3>
+CPHL is compatible with any JSON/ XML HAL client as it is simliar in structure and shares the "title" and "href" properties.  However, the description, methods, formats, docHref, and code properties are not supported by HAL and will be ignored.
+
+Otherwise CPHL can be deserialized and used across any language with the appropriate library (whether it be JSON, XML, YAML, etc).
