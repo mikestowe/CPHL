@@ -5,7 +5,7 @@ CPHL, or the Cross-Platform Hypertext Language is a hypertext specification for 
 
 It is also designed to be action driven, rather than resource driven.  This means that a resource may be included multiple times if necessary (ie edit, delete), but described by its title, description, and the methods it utilizes - making it more explicit than other formats.
 
-CPHL requires specific key value pairs that can then be distributed across different platforms, such as JSON, XML, and YAML (see examples in repository).
+CPHL requires specific key value pairs that can then be distributed across different platforms, such as JSON, XML, and YAML (see examples below).
 
 <h3>General Rules</h3>
 CPHL is designed to be as flexible as possible, but does recommend the use of both the _definition and _links collections, although at minimum the _links collection is required.
