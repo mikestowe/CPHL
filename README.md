@@ -17,6 +17,13 @@ _definition contains the collection of API definitions, as described by WADL, RA
 
 The _definition collection breaks down into key value pairs where the name of the spec (camelCase, no spaces) represents the key, and the URL to the file containing the API defintion is the value.
 
+```
+"_definition" : {
+  "raml" : "http://api.domain.com/docs/api/raml",
+  "swagger" : "http://api.domain.com/docs/api/swagger"
+}
+```
+
 <h4>_links</h4>
 _links contains the hypertext links collection utilizing the action as the key.
 
