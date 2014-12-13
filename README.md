@@ -33,6 +33,7 @@ Each individual link contains the following structure (optional constraints ital
 - *title*: the title of the action (eg: Edit User)
 - *description*: a brief description of the action
 - <b>href</b>: the URI for the client to achieve the action
+- *expiration*: timestamp of when the link expires/ is no longer valid
 - *methods*: an array of available methods to perform this specific action (eg edit: put, patch; view: get)
 - *formats*: an array of formats that this action supports (ie JSON, XML, etc)
   - *{formatName}*
