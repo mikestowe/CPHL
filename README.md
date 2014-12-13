@@ -27,18 +27,18 @@ The _definition collection breaks down into key value pairs where the name of th
 <h4>_links</h4>
 _links contains the hypertext links collection utilizing the action as the key.
 
-Each individual link contains the following structure (required constraints underlined):
-- <b>*title*</b>: the title of the action (eg: Edit User)
-- <b>*description*</b>: a brief description of the action
-- <b><u>href</u></b>: the URI for the client to achieve the action
-- <b>*methods*</b>: an array of available methods to perform this specific action (eg edit: put, patch; view: get)
-- <b>*formats*</b>: an array of formats that this action supports (ie JSON, XML, etc)
-  - <b>*{formatName}*</b>
-    - <b>*mimeType*</b>: the mime-type of the format (eg: application/json)
-    - <b>*schema*</b>: the URL to the schema for this format
-- <b>*docHref*</b>: the URL to online documentation for this action
-- <b>*code*</b>: an array of available code libraries for this action
-  - <b>*{language}*</b>: the URL of the code library accessible to the client
+Each individual link contains the following structure (optional constraints italic):
+- *title*: the title of the action (eg: Edit User)
+- *description*: a brief description of the action
+- <b>href</b>: the URI for the client to achieve the action
+- *methods*: an array of available methods to perform this specific action (eg edit: put, patch; view: get)
+- *formats*: an array of formats that this action supports (ie JSON, XML, etc)
+  - *{formatName}*
+    - *mimeType*: the mime-type of the format (eg: application/json)
+    - *schema*: the URL to the schema for this format
+- *docHref*: the URL to online documentation for this action
+- *code*: an array of available code libraries for this action
+  - *{language}*: the URL of the code library accessible to the client
   
 <h3>Examples</h3>
 <h4>application/cphl+json</h4>
