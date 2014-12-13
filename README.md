@@ -93,12 +93,8 @@ Within the _links collections certain key names are reserved for specific action
 <h4>application/cphl+xml</h4>
 ```
 <_definition>
-  <raml>
-    <href>http://api.domain.com/docs/api/raml</href>
-  </raml>
-  <swagger>
-    <href>http://api.domain.com/docs/api/swagger</href>
-  </swagger>
+  <raml>http://api.domain.com/docs/api/raml</raml>
+  <swagger>http://api.domain.com/docs/api/swagger</swagger>
 </_definition>
  
 <_links>
@@ -132,10 +128,8 @@ Within the _links collections certain key names are reserved for specific action
 <h4>application/cphl+yaml</h4>
 ```
 _definition:
-  raml:
-    href: http://api.domain.com/docs/api/raml
-  swagger:
-    href: http://api.domain.com/docs/api/swagger
+  raml: http://api.domain.com/docs/api/raml
+  swagger: http://api.domain.com/docs/api/swagger
     
 _links:
   update:
