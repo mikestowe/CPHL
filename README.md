@@ -121,7 +121,7 @@ Within the _links collections certain key names are reserved for specific action
       <java>http://code.domain.com/javalib/edit.tgz</java>
       <ruby>http://code.domain.com/rubylib/edit.tgz</ruby>
     </code>
-  </edit>
+  </update>
 </_links>
 ```
 
