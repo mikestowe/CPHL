@@ -72,6 +72,11 @@ For example:
 
 <b>application/cphl+json+formats</b> will include the formats property, but continue to exclude the code properties.
 
+Available headers include:
+- docs: shows the docHref property, hidden by default
+- formats: shows the available content-tyeps, hidden by default
+- code: shows code-on-demand links, hidden by default
+
 <h3>Examples</h3>
 <h4>application/cphl+json</h4>
 ```
@@ -86,12 +91,11 @@ For example:
     "description" : "edit the user",
     "href" : "/api/resource",
     "methods" : ["put", "patch"],
-    "docHref" : "http://api.domain.com/docs/edit",
   }
 }
 ```
 
-<h4>application/cphl+json+code+formats</h4>
+<h4>application/cphl+json+docs+code+formats</h4>
 ```
 "_definition" : {
   "raml" : "http://api.domain.com/docs/api/raml",
@@ -138,12 +142,11 @@ For example:
     <href>/api/resource</href>
     <methods>put</methods>
     <methods>patch</methods>
-    <docHref>http://api.domain.com/docs/edit</docHref>
   </update>
 </_links>
 ```
 
-<h4>application/cphl+xml+code+formats</h4>
+<h4>application/cphl+xml+docs+code+formats</h4>
 ```
 <_definition>
   <raml>http://api.domain.com/docs/api/raml</raml>
@@ -191,10 +194,9 @@ _links:
     methods:
       - put
       - patch
-    docHref: http://api.domain.com/docs/edit
 ```
 
-<h4>application/cphl+yaml+code+formats</h4>
+<h4>application/cphl+yaml+docs+code+formats</h4>
 ```
 _definition:
   raml: http://api.domain.com/docs/api/raml
