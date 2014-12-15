@@ -64,15 +64,33 @@ Within the _links collections certain key names are reserved for specific action
 CPHL supports multiple Content-type headers to express the information that should be included in the response.  Every CPHL header starts with "cphl" followed by the format (ie "json"), and then by an optional "code" to express whether or not the code links should be included in the response.
 
 For example:
-<b>application/cphl+json</b> will return the _definition and _links collections, but omit the "code" property for the different _links actions as well as the other content-types available under "formats."
+<b>application/cphl+json</b> will return the _definition and _links collections, but omit the "code" property for the different _links actions as well as the content-types available under "formats."
 
-<b>application/cphl+json+code</b> will return the _definition and _links collections, but omit the formats property (other than than the json format).
+<b>application/cphl+json+code</b> will return the _definition and _links collections, but omit the formats property.
 
 <b>application/cphl+json+code+formats</b> will include both the code and formats properties.
 
 <b>application/cphl+json+formats</b> will include the formats property, but continue to exclude the code properties.
 
 <h3>Examples</h3>
+<h4>application/cphl+json</h4>
+```
+"_definition" : {
+  "raml" : "http://api.domain.com/docs/api/raml",
+  "swagger" : "http://api.domain.com/docs/api/swagger"
+}
+ 
+"_links" : {
+  "update" : {
+    "title" : "Edit User",
+    "description" : "edit the user",
+    "href" : "/api/resource",
+    "methods" : ["put", "patch"],
+    "docHref" : "http://api.domain.com/docs/edit",
+  }
+}
+```
+
 <h4>application/cphl+json+code+formats</h4>
 ```
 "_definition" : {
@@ -106,6 +124,25 @@ For example:
 }
 ```
 
+<h4>application/cphl+xml</h4>
+```
+<_definition>
+  <raml>http://api.domain.com/docs/api/raml</raml>
+  <swagger>http://api.domain.com/docs/api/swagger</swagger>
+</_definition>
+ 
+<_links>
+  <update>
+    <title>Edit User</title>
+    <description>edit the user</description>
+    <href>/api/resource</href>
+    <methods>put</methods>
+    <methods>patch</methods>
+    <docHref>http://api.domain.com/docs/edit</docHref>
+  </update>
+</_links>
+```
+
 <h4>application/cphl+xml+code+formats</h4>
 ```
 <_definition>
@@ -130,7 +167,6 @@ For example:
         <schema>http://api.domain.com/docs/api/editSchema.xml</schema>
       </xml>
     </formats>
-    <formats>xml</formats>
     <docHref>http://api.domain.com/docs/edit</docHref>
     <code>
       <php>http://code.domain.com/phplib/edit.tgz</php>
@@ -139,6 +175,23 @@ For example:
     </code>
   </update>
 </_links>
+```
+
+<h4>application/cphl+yaml</h4>
+```
+_definition:
+  raml: http://api.domain.com/docs/api/raml
+  swagger: http://api.domain.com/docs/api/swagger
+    
+_links:
+  update:
+    title: Edit User
+    description: edit the user
+    href: /api/resource
+    methods:
+      - put
+      - patch
+    docHref: http://api.domain.com/docs/edit
 ```
 
 <h4>application/cphl+yaml+code+formats</h4>
