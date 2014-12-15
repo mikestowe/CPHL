@@ -51,6 +51,7 @@ Within the _links collections certain key names are reserved for specific action
 - read: retrieve an item or collection via GET
 - update: utilization of the put/ patch methods to update an item, or ALL items in a collection*
 - delete: deletes the item or the collection*
+- search: the resource to perform a search on a collection
 - first: links to the first record in a collection
 - beginning: links to the first set of records in a paginated result
 - prev: links to the previous set of records in a paginated result
