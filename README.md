@@ -49,7 +49,7 @@ Each individual link contains the following structure (optional constraints ital
 Within the _links collections certain key names are reserved for specific actions.  These are based on the most commonly used hypermedia links, as well as CRUD for that specific collection/ item.  They include:
 - create: Create a new record via the POST method (equivalent to self::POST)
 - read: retrieve an item or collection via GET (equivalent to self::GET)
-- update: utilization of the put/ patch methods to update an item, or ALL items in a collection* (equivalent to self::PUT)
+- update: utilization of the put/ patch methods to update an item, or all items in a collection* (self::PUT)
 - delete: deletes the item or the collection* (equivalent to self::DELETE)
 - search: the resource to perform a search on a collection
 - first: links to the first record in a collection
@@ -60,6 +60,9 @@ Within the _links collections certain key names are reserved for specific action
 - end: links to the last set of records in a paginated result
 - base: links back to the starting point of a hypermedia API
   
+\* it is generally a bad design practice to allow mass editing/ deletion of a collection
+
+
 <h3>Content-type Headers</h3>
 CPHL supports multiple Content-type headers to express the information that should be included in the response.  Every CPHL header starts with "cphl" followed by the format (ie "json"), and then by an optional "code" to express whether or not the code links should be included in the response.
 
