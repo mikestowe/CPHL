@@ -16,6 +16,24 @@ Based on HAL, CPHL is nestable meaning that you can utilize it for actions speci
 
 
 <h3>The Specification</h3>
+<h4>_vars</h4>
+_vars contains variables for use within the _links and _definition collections.  These variables or placeholders are segmented to allow for easy code access.  Variables in CPHL are assigned using key/value mapping:
+
+```
+"_vars" : {
+  "baseUri" : "http://api.domain.com/",
+  "codeUri" : "http://code.domain.com/"
+}
+```
+
+Variables are then identified in the _definition and _links collections by using curly brackets {} as such:
+
+```
+"_definition" : {
+  "raml" : "{baseUri}docs/api/raml",
+}
+```
+
 <h4>_definition</h4>
 _definition contains the collection of API definitions, as described by WADL, RAML, Swagger, or API Blueprint.
 
