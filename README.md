@@ -62,7 +62,12 @@ Each individual link contains the following structure (optional constraints ital
     - *schema*: the URL to the schema for this format
 - *docHref*: the URL to online documentation for this action
 - *code*: an array of available code libraries for this action
-  - *{language}*: the URL of the code library accessible to the client
+  - *{language}*
+    - href: the URL of the code library accessible to the client
+    - *version*: the version of the code
+    - *md5*: md5 of the code for quick comparison
+    - *expiration*: timestamp of when the code cache expires
+    - *recordSpecific*: true/false bool if the code can be used for similiar operations across different records
   
 <h5>Reserved Names</h5>
 Within the _links collections certain key names are reserved for specific actions.  These are based on the most commonly used hypermedia links, as well as CRUD for that specific collection/ item.  They include:
@@ -142,9 +147,21 @@ Available headers include:
     },
     "docHref" : "http://api.domain.com/docs/edit",
     "code" : {
-        "php" : "http://code.domain.com/phplib/edit.tgz",
-        "java" : "http://code.domain.com/javalib/edit.tgz",
-        "ruby" : "http://code.domain.com/rubylib/edit.tgz",
+        "php" : {
+          "href" : "http://code.domain.com/phplib/edit.tgz",
+          "md5" : "0cc175b9c0f1b6a831c399e269772661",
+          "recordSpecific" : false
+        },
+        "java" : {
+          "href" : "http://code.domain.com/javalib/edit.tgz",
+          "md5" : "0cc175b9c0f1b6a831c399e269772661",
+          "recordSpecific" : false
+        },
+        "ruby" : {
+          "href" : "http://code.domain.com/rubylib/edit.tgz",
+          "md5" : "0cc175b9c0f1b6a831c399e269772661",
+          "recordSpecific" : false
+        },
     }
   }
 }
@@ -194,9 +211,21 @@ Available headers include:
     </formats>
     <docHref>http://api.domain.com/docs/edit</docHref>
     <code>
-      <php>http://code.domain.com/phplib/edit.tgz</php>
-      <java>http://code.domain.com/javalib/edit.tgz</java>
-      <ruby>http://code.domain.com/rubylib/edit.tgz</ruby>
+      <php>
+        <href>http://code.domain.com/phplib/edit.tgz</href>
+        <md5>0cc175b9c0f1b6a831c399e269772661</md5>
+        <recordSpecific>false</recordSpecific>
+      </php>
+      <java>
+        <href>http://code.domain.com/javalib/edit.tgz</href>
+        <md5>0cc175b9c0f1b6a831c399e269772661</md5>
+        <recordSpecific>false</recordSpecific>
+      </java>
+      <ruby>
+        <href>http://code.domain.com/rubylib/edit.tgz</href>
+        <md5>0cc175b9c0f1b6a831c399e269772661</md5>
+        <recordSpecific>false</recordSpecific>
+      </ruby>
     </code>
   </update>
 </_links>
@@ -241,9 +270,18 @@ _links:
         schema: http://api.domain.com/docs/api/editSchema.xml
     docHref: http://api.domain.com/docs/edit
     code:
-      php: http://code.domain.com/phplib/edit.tgz
-      java: http://code.domain.com/javalib/edit.tgz
-      ruby: http://code.domain.com/rubylib/edit.tgz
+      php:
+        href: http://code.domain.com/phplib/edit.tgz
+        md5: 0cc175b9c0f1b6a831c399e269772661
+        recordSpecific: false
+      java: 
+        href: http://code.domain.com/javalib/edit.tgz
+        md5: 0cc175b9c0f1b6a831c399e269772661
+        recordSpecific: false
+      ruby: 
+        href: http://code.domain.com/rubylib/edit.tgz
+        md5: 0cc175b9c0f1b6a831c399e269772661
+        recordSpecific: false
 ```
 
 <h3>Clients and Cross-Compatiblity</h3>
