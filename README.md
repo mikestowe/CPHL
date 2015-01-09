@@ -71,6 +71,7 @@ Each individual link contains the following structure (optional constraints ital
   
 <h5>Reserved Names</h5>
 Within the _links collections certain key names are reserved for specific actions.  These are based on the most commonly used hypermedia links, as well as CRUD for that specific collection/ item.  They include:
+- self: self provides a namespace for links to docs and code related to the exact call the client is on
 - create: Create a new record via the POST method (equivalent to self::POST)
 - read: retrieve an item or collection via GET (equivalent to self::GET)
 - update: utilization of the put/ patch methods to update an item, or all items in a collection* (self::PUT)
