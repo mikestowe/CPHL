@@ -108,62 +108,64 @@ Available headers include:
 <h3>Examples</h3>
 <h4>application/cphl+json</h4>
 ```json
-"_definition" : {
-  "raml" : "http://api.domain.com/docs/api/raml",
-  "swagger" : "http://api.domain.com/docs/api/swagger"
-}
- 
-"_links" : {
-  "update" : {
-    "title" : "Edit User",
-    "description" : "edit the user",
-    "href" : "/api/resource",
-    "methods" : ["put", "patch"],
+{
+  "_definition": {
+      "raml": "http://api.domain.com/docs/api/raml",
+      "swagger": "http://api.domain.com/docs/api/swagger"
+  },
+  "_links": {
+      "update": {
+          "title": "Edit User",
+          "description": "edit the user",
+          "href": "/api/resource",
+          "methods": ["put","patch"]
+      }
   }
 }
 ```
 
 <h4>application/cphl+json+docs+code+formats</h4>
 ```json
-"_definition" : {
-  "raml" : "http://api.domain.com/docs/api/raml",
-  "swagger" : "http://api.domain.com/docs/api/swagger"
-}
- 
-"_links" : {
-  "update" : {
-    "title" : "Edit User",
-    "description" : "edit the user",
-    "href" : "/api/resource",
-    "methods" : ["put", "patch"],
-    "formats" : {
-        "json" : {
-          "mimeType" : "application/json",
-          "schema" : "http://api.domain.com/docs/api/editSchema.json"
-        },
-        "xml" : {
-          "mimeType" : "text/xml",
-          "schema" : "http://api.domain.com/docs/api/editSchema.xml"
-        },
-    },
-    "docHref" : "http://api.domain.com/docs/edit",
-    "code" : {
-        "php" : {
-          "href" : "http://code.domain.com/phplib/edit.tgz",
-          "md5" : "0cc175b9c0f1b6a831c399e269772661",
-          "recordSpecific" : false
-        },
-        "java" : {
-          "href" : "http://code.domain.com/javalib/edit.tgz",
-          "md5" : "0cc175b9c0f1b6a831c399e269772661",
-          "recordSpecific" : false
-        },
-        "ruby" : {
-          "href" : "http://code.domain.com/rubylib/edit.tgz",
-          "md5" : "0cc175b9c0f1b6a831c399e269772661",
-          "recordSpecific" : false
-        },
-    }
+{
+  "_definition": {
+      "raml": "http://api.domain.com/docs/api/raml",
+      "swagger": "http://api.domain.com/docs/api/swagger"
+  },
+  "_links": {
+      "update": {
+          "title": "Edit User",
+          "description": "edit the user",
+          "href": "/api/resource",
+          "methods": ["put","patch"],
+          "formats": {
+              "json": {
+                  "mimeType": "application/json",
+                  "schema": "http://api.domain.com/docs/api/editSchema.json"
+              },
+              "xml": {
+                  "mimeType": "text/xml",
+                  "schema": "http://api.domain.com/docs/api/editSchema.xml"
+              }
+          },
+          "docHref": "http://api.domain.com/docs/edit",
+          "code": {
+              "php": {
+                  "href": "http://code.domain.com/phplib/edit.tgz",
+                  "md5": "0cc175b9c0f1b6a831c399e269772661",
+                  "recordSpecific": false
+              },
+              "java": {
+                  "href": "http://code.domain.com/javalib/edit.tgz",
+                  "md5": "0cc175b9c0f1b6a831c399e269772661",
+                  "recordSpecific": false
+              },
+              "ruby": {
+                  "href": "http://code.domain.com/rubylib/edit.tgz",
+                  "md5": "0cc175b9c0f1b6a831c399e269772661",
+                  "recordSpecific": false
+              }
+          }
+      }
   }
 }
 ```
