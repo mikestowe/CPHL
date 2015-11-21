@@ -160,9 +160,11 @@ Available headers include:
           },
           "docHref": "http://api.domain.com/docs/edit",
           "code": {
-                "href": "http://code.domain.com/edit.js",
-                "md5": "0cc175b9c0f1b6a831c399e269772661",
-                "recordSpecific": false
+            "logic": {
+              "href": "http://code.domain.com/edit.js",
+              "md5": "0cc175b9c0f1b6a831c399e269772661",
+              "recordSpecific": false
+            }
           }
       }
   }
@@ -213,21 +215,11 @@ Available headers include:
     </formats>
     <docHref>http://api.domain.com/docs/edit</docHref>
     <code>
-      <php>
-        <href>http://code.domain.com/phplib/edit.tgz</href>
+      <logic>
+        <href>http://code.domain.com/edit.js</href>
         <md5>0cc175b9c0f1b6a831c399e269772661</md5>
         <recordSpecific>false</recordSpecific>
-      </php>
-      <java>
-        <href>http://code.domain.com/javalib/edit.tgz</href>
-        <md5>0cc175b9c0f1b6a831c399e269772661</md5>
-        <recordSpecific>false</recordSpecific>
-      </java>
-      <ruby>
-        <href>http://code.domain.com/rubylib/edit.tgz</href>
-        <md5>0cc175b9c0f1b6a831c399e269772661</md5>
-        <recordSpecific>false</recordSpecific>
-      </ruby>
+      </logic>
     </code>
   </update>
 </_links>
@@ -272,16 +264,8 @@ _links:
         schema: http://api.domain.com/docs/api/editSchema.xml
     docHref: http://api.domain.com/docs/edit
     code:
-      php:
-        href: http://code.domain.com/phplib/edit.tgz
-        md5: 0cc175b9c0f1b6a831c399e269772661
-        recordSpecific: false
-      java: 
-        href: http://code.domain.com/javalib/edit.tgz
-        md5: 0cc175b9c0f1b6a831c399e269772661
-        recordSpecific: false
-      ruby: 
-        href: http://code.domain.com/rubylib/edit.tgz
+      logic:
+        href: http://code.domain.com/edit.js
         md5: 0cc175b9c0f1b6a831c399e269772661
         recordSpecific: false
 ```
