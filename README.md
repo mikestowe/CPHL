@@ -103,13 +103,13 @@ Within the _links collections certain key names are reserved for specific action
 CPHL supports multiple Content-type headers to express the information that should be included in the response.  Every CPHL header starts with "cphl" followed by the format (ie "json"), and then by an optional "code" to express whether or not the code links should be included in the response.
 
 For example:
-<b>application/cphl+json</b> will return the _definition and _links collections, but omit the "code" property for the different _links actions as well as the content-types available under "formats."
+<b>vnd.cphl+json</b> will return the _definition and _links collections, but omit the "code" property for the different _links actions as well as the content-types available under "formats."
 
-<b>application/cphl+json+code</b> will return the _definition and _links collections, but omit the formats property.
+<b>vnd.cphl+json+code</b> will return the _definition and _links collections, but omit the formats property.
 
-<b>application/cphl+json+code+formats</b> will include both the code and formats properties.
+<b>vnd.cphl+json+code+formats</b> will include both the code and formats properties.
 
-<b>application/cphl+json+formats</b> will include the formats property, but continue to exclude the code properties.
+<b>vnd.cphl+json+formats</b> will include the formats property, but continue to exclude the code properties.
 
 Available headers include:
 - docs: shows the docHref property, hidden by default
@@ -117,7 +117,7 @@ Available headers include:
 - code: shows code-on-demand links, hidden by default
 
 <h3>Examples</h3>
-<h4>application/cphl+json</h4>
+<h4>vnd.cphl+json</h4>
 ```json
 {
   "_definition": {
@@ -135,7 +135,7 @@ Available headers include:
 }
 ```
 
-<h4>application/cphl+json+docs+code+formats</h4>
+<h4>vnd.cphl+json+docs+code+formats</h4>
 ```json
 {
   "_definition": {
@@ -171,7 +171,7 @@ Available headers include:
 }
 ```
 
-<h4>application/cphl+xml</h4>
+<h4>vnd.cphl+xml</h4>
 ```xml
 <_definition>
   <raml>http://api.domain.com/docs/api/raml</raml>
@@ -189,7 +189,7 @@ Available headers include:
 </_links>
 ```
 
-<h4>application/cphl+xml+docs+code+formats</h4>
+<h4>vnd.cphl+xml+docs+code+formats</h4>
 ```xml
 <_definition>
   <raml>http://api.domain.com/docs/api/raml</raml>
@@ -225,7 +225,7 @@ Available headers include:
 </_links>
 ```
 
-<h4>application/cphl+yaml</h4>
+<h4>vnd.cphl+yaml</h4>
 ```yaml
 _definition:
   raml: http://api.domain.com/docs/api/raml
@@ -241,7 +241,7 @@ _links:
       - patch
 ```
 
-<h4>application/cphl+yaml+docs+code+formats</h4>
+<h4>vnd.cphl+yaml+docs+code+formats</h4>
 ```yaml
 _definition:
   raml: http://api.domain.com/docs/api/raml
