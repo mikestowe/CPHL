@@ -63,22 +63,17 @@ Each individual link contains the following structure (optional constraints ital
 - *docHref*: the URL to online documentation for this action
 - *code*:
   - form:
-    - (array):
-      - *name*: the name of the field
-      - *type*: the field type (text, textarea, radio, etc)
-      - value: the default value
-      - *required*: boolean declaring whether or not field is required
-      - {other attributes}: other attributes such as maxLength, patterns, etc
-    - *version*: the version of the code
-    - *md5*: md5 of the code for quick comparison
-    - *expiration*: timestamp of when the code cache expires
+    - *href*: href of the form to pull to be parsed/ compiled
+    - *version*: the version of the form
+    - *md5*: md5 of the form for quick comparison
+    - *expiration*: timestamp of when the form cache expires
     - *recordSpecific*: true/false bool if the form can be used for similiar operations across different records
   - logic:
     - *href*: href of the code to pull to be parsed/ compiled
     - *version*: the version of the code
     - *md5*: md5 of the code for quick comparison
     - *expiration*: timestamp of when the code cache expires
-    - *recordSpecific*: true/false bool if the form can be used for similiar operations across different records
+    - *recordSpecific*: true/false bool if the code can be used for similiar operations across different records
   
 <h5>Reserved Names</h5>
 Within the _links collections certain key names are reserved for specific actions.  These are based on the most commonly used hypermedia links, as well as CRUD for that specific collection/ item.  They include:
