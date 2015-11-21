@@ -62,7 +62,7 @@ Each individual link contains the following structure (optional constraints ital
     - *schema*: the URL to the schema for this format
 - *docHref*: the URL to online documentation for this action
 - *code*:
-  - *form*:
+  - [*form*](https://github.com/mikestowe/CPHL/blob/0.1/forms.md):
     - href: href of the form to pull to be parsed/ compiled
     - *version*: the version of the form
     - *md5*: md5 of the form for quick comparison
