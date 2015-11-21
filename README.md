@@ -61,13 +61,24 @@ Each individual link contains the following structure (optional constraints ital
     - *mimeType*: the mime-type of the format (eg: application/json)
     - *schema*: the URL to the schema for this format
 - *docHref*: the URL to online documentation for this action
-- *code*: an array of available code libraries for this action
-  - *{language}*
-    - href: the URL of the code library accessible to the client
+- *code*:
+  - form:
+    - (array):
+      - *name*: the name of the field
+      - *type*: the field type (text, textarea, radio, etc)
+      - value: the default value
+      - *required*: boolean declaring whether or not field is required
+      - {other attributes}: other attributes such as maxLength, patterns, etc
     - *version*: the version of the code
     - *md5*: md5 of the code for quick comparison
     - *expiration*: timestamp of when the code cache expires
-    - *recordSpecific*: true/false bool if the code can be used for similiar operations across different records
+    - *recordSpecific*: true/false bool if the form can be used for similiar operations across different records
+  - logic:
+    - *href*: href of the code to pull to be parsed/ compiled
+    - *version*: the version of the code
+    - *md5*: md5 of the code for quick comparison
+    - *expiration*: timestamp of when the code cache expires
+    - *recordSpecific*: true/false bool if the form can be used for similiar operations across different records
   
 <h5>Reserved Names</h5>
 Within the _links collections certain key names are reserved for specific actions.  These are based on the most commonly used hypermedia links, as well as CRUD for that specific collection/ item.  They include:
@@ -149,21 +160,9 @@ Available headers include:
           },
           "docHref": "http://api.domain.com/docs/edit",
           "code": {
-              "php": {
-                  "href": "http://code.domain.com/phplib/edit.tgz",
-                  "md5": "0cc175b9c0f1b6a831c399e269772661",
-                  "recordSpecific": false
-              },
-              "java": {
-                  "href": "http://code.domain.com/javalib/edit.tgz",
-                  "md5": "0cc175b9c0f1b6a831c399e269772661",
-                  "recordSpecific": false
-              },
-              "ruby": {
-                  "href": "http://code.domain.com/rubylib/edit.tgz",
-                  "md5": "0cc175b9c0f1b6a831c399e269772661",
-                  "recordSpecific": false
-              }
+                "href": "http://code.domain.com/edit.js",
+                "md5": "0cc175b9c0f1b6a831c399e269772661",
+                "recordSpecific": false
           }
       }
   }
