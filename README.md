@@ -1,8 +1,6 @@
 CPHL
 ====
 
-<b>Disclaimer: this is a brain-storming document, and is not in any way final nor concrete.</b>
-
 CPHL, or the Cross-Platform Hypertext Language is a hypertext specification for RESTful APIs.  CPHL is based on HAL, but is designed to allow for greater flexibility, transmission of additional information, and empowerment of resource specific code on demand.
 
 It is also designed to be action driven, rather than resource driven.  This means that a resource may be included multiple times if necessary (ie edit, delete), but described by its title, description, and the methods it utilizes - making it more explicit than other formats.
@@ -44,12 +42,14 @@ The _definition collection breaks down into key value pairs where the name of th
   "raml" : "http://api.domain.com/docs/api/raml",
   "swagger" : "http://api.domain.com/docs/api/swagger"
 }
+
 ```
 
 <h4>_links</h4>
 _links contains the hypertext links collection utilizing the action as the key for easy deserialization and quick access.
 
 Each individual link contains the following structure (optional constraints italic):
+
 - *title*: the title of the action (eg: Edit User)
 - *description*: a brief description of the action
 - <b>href</b>: the URI for the client to achieve the action
@@ -77,6 +77,7 @@ Each individual link contains the following structure (optional constraints ital
   
 <h5>Reserved Names</h5>
 Within the _links collections certain key names are reserved for specific actions.  These are based on the most commonly used hypermedia links, as well as CRUD for that specific collection/ item.  They include:
+
 - self: self provides a namespace for links to docs and code related to the exact call the client is on
 - create: Create a new record via the POST method (equivalent to self::POST)
 - read: retrieve an item or collection via GET (equivalent to self::GET)
@@ -113,6 +114,7 @@ Available headers include:
 
 <h3>Examples</h3>
 <h4>vnd.cphl+json</h4>
+
 ```json
 {
   "_definition": {
@@ -130,7 +132,9 @@ Available headers include:
 }
 ```
 
+
 <h4>vnd.cphl+json+docs+code+formats</h4>
+
 ```json
 {
   "_definition": {
@@ -167,6 +171,7 @@ Available headers include:
 ```
 
 <h4>vnd.cphl+xml</h4>
+
 ```xml
 <_definition>
   <raml>http://api.domain.com/docs/api/raml</raml>
@@ -185,6 +190,7 @@ Available headers include:
 ```
 
 <h4>vnd.cphl+xml+docs+code+formats</h4>
+
 ```xml
 <_definition>
   <raml>http://api.domain.com/docs/api/raml</raml>
@@ -221,6 +227,7 @@ Available headers include:
 ```
 
 <h4>vnd.cphl+yaml</h4>
+
 ```yaml
 _definition:
   raml: http://api.domain.com/docs/api/raml
@@ -237,6 +244,7 @@ _links:
 ```
 
 <h4>vnd.cphl+yaml+docs+code+formats</h4>
+
 ```yaml
 _definition:
   raml: http://api.domain.com/docs/api/raml
