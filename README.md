@@ -44,6 +44,7 @@ The _definition collection breaks down into key value pairs where the name of th
   "raml" : "http://api.domain.com/docs/api/raml",
   "swagger" : "http://api.domain.com/docs/api/swagger"
 }
+
 ```
 
 <h4>_links</h4>
@@ -107,6 +108,7 @@ Available headers include:
 
 <h3>Examples</h3>
 <h4>application/cphl+json</h4>
+
 ```
 {
   "_definition": {
@@ -125,6 +127,7 @@ Available headers include:
 ```
 
 <h4>application/cphl+json+docs+code+formats</h4>
+
 ```
 {
   "_definition": {
@@ -171,6 +174,7 @@ Available headers include:
 ```
 
 <h4>application/cphl+xml</h4>
+
 ```
 <_definition>
   <raml>http://api.domain.com/docs/api/raml</raml>
@@ -189,6 +193,7 @@ Available headers include:
 ```
 
 <h4>application/cphl+xml+docs+code+formats</h4>
+
 ```
 <_definition>
   <raml>http://api.domain.com/docs/api/raml</raml>
@@ -235,6 +240,7 @@ Available headers include:
 ```
 
 <h4>application/cphl+yaml</h4>
+
 ```yaml
 _definition:
   raml: http://api.domain.com/docs/api/raml
@@ -251,6 +257,7 @@ _links:
 ```
 
 <h4>application/cphl+yaml+docs+code+formats</h4>
+
 ```yaml
 _definition:
   raml: http://api.domain.com/docs/api/raml
