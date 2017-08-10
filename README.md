@@ -49,6 +49,7 @@ The _definition collection breaks down into key value pairs where the name of th
 _links contains the hypertext links collection utilizing the action as the key for easy deserialization and quick access.
 
 Each individual link contains the following structure (optional constraints italic):
+
 - *title*: the title of the action (eg: Edit User)
 - *description*: a brief description of the action
 - <b>href</b>: the URI for the client to achieve the action
@@ -70,6 +71,7 @@ Each individual link contains the following structure (optional constraints ital
   
 <h5>Reserved Names</h5>
 Within the _links collections certain key names are reserved for specific actions.  These are based on the most commonly used hypermedia links, as well as CRUD for that specific collection/ item.  They include:
+
 - self: self provides a namespace for links to docs and code related to the exact call the client is on
 - create: Create a new record via the POST method (equivalent to self::POST)
 - read: retrieve an item or collection via GET (equivalent to self::GET)
