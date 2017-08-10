@@ -61,13 +61,19 @@ Each individual link contains the following structure (optional constraints ital
     - *mimeType*: the mime-type of the format (eg: application/json)
     - *schema*: the URL to the schema for this format
 - *docHref*: the URL to online documentation for this action
-- *code*: an array of available code libraries for this action
-  - *{language}*
-    - href: the URL of the code library accessible to the client
+- *code*:
+  - [*form*](https://github.com/mikestowe/CPHL/blob/0.1/forms.md):
+    - href: href of the form to pull to be parsed/ compiled
+    - *version*: the version of the form
+    - *md5*: md5 of the form for quick comparison
+    - *expiration*: timestamp of when the form cache expires
+    - *recordSpecific*: true/false bool if the form can be used for similiar operations across different records - default is false
+  - *logic*:
+    - href: href of the code to pull to be parsed/ compiled
     - *version*: the version of the code
     - *md5*: md5 of the code for quick comparison
     - *expiration*: timestamp of when the code cache expires
-    - *recordSpecific*: true/false bool if the code can be used for similiar operations across different records
+    - *recordSpecific*: true/false bool if the code can be used for similiar operations across different records - default is false
   
 <h5>Reserved Names</h5>
 Within the _links collections certain key names are reserved for specific actions.  These are based on the most commonly used hypermedia links, as well as CRUD for that specific collection/ item.  They include:
@@ -93,13 +99,13 @@ Within the _links collections certain key names are reserved for specific action
 CPHL supports multiple Content-type headers to express the information that should be included in the response.  Every CPHL header starts with "cphl" followed by the format (ie "json"), and then by an optional "code" to express whether or not the code links should be included in the response.
 
 For example:
-<b>application/cphl+json</b> will return the _definition and _links collections, but omit the "code" property for the different _links actions as well as the content-types available under "formats."
+<b>vnd.cphl+json</b> will return the _definition and _links collections, but omit the "code" property for the different _links actions as well as the content-types available under "formats."
 
-<b>application/cphl+json+code</b> will return the _definition and _links collections, but omit the formats property.
+<b>vnd.cphl+json+code</b> will return the _definition and _links collections, but omit the formats property.
 
-<b>application/cphl+json+code+formats</b> will include both the code and formats properties.
+<b>vnd.cphl+json+code+formats</b> will include both the code and formats properties.
 
-<b>application/cphl+json+formats</b> will include the formats property, but continue to exclude the code properties.
+<b>vnd.cphl+json+formats</b> will include the formats property, but continue to exclude the code properties.
 
 Available headers include:
 - docs: shows the docHref property, hidden by default
@@ -107,9 +113,9 @@ Available headers include:
 - code: shows code-on-demand links, hidden by default
 
 <h3>Examples</h3>
-<h4>application/cphl+json</h4>
+<h4>vnd.cphl+json</h4>
 
-```
+```json
 {
   "_definition": {
       "raml": "http://api.domain.com/docs/api/raml",
@@ -126,9 +132,10 @@ Available headers include:
 }
 ```
 
-<h4>application/cphl+json+docs+code+formats</h4>
 
-```
+<h4>vnd.cphl+json+docs+code+formats</h4>
+
+```json
 {
   "_definition": {
       "raml": "http://api.domain.com/docs/api/raml",
@@ -152,30 +159,20 @@ Available headers include:
           },
           "docHref": "http://api.domain.com/docs/edit",
           "code": {
-              "php": {
-                  "href": "http://code.domain.com/phplib/edit.tgz",
-                  "md5": "0cc175b9c0f1b6a831c399e269772661",
-                  "recordSpecific": false
-              },
-              "java": {
-                  "href": "http://code.domain.com/javalib/edit.tgz",
-                  "md5": "0cc175b9c0f1b6a831c399e269772661",
-                  "recordSpecific": false
-              },
-              "ruby": {
-                  "href": "http://code.domain.com/rubylib/edit.tgz",
-                  "md5": "0cc175b9c0f1b6a831c399e269772661",
-                  "recordSpecific": false
-              }
+            "logic": {
+              "href": "http://code.domain.com/edit.js",
+              "md5": "0cc175b9c0f1b6a831c399e269772661",
+              "recordSpecific": false
+            }
           }
       }
   }
 }
 ```
 
-<h4>application/cphl+xml</h4>
+<h4>vnd.cphl+xml</h4>
 
-```
+```xml
 <_definition>
   <raml>http://api.domain.com/docs/api/raml</raml>
   <swagger>http://api.domain.com/docs/api/swagger</swagger>
@@ -192,9 +189,9 @@ Available headers include:
 </_links>
 ```
 
-<h4>application/cphl+xml+docs+code+formats</h4>
+<h4>vnd.cphl+xml+docs+code+formats</h4>
 
-```
+```xml
 <_definition>
   <raml>http://api.domain.com/docs/api/raml</raml>
   <swagger>http://api.domain.com/docs/api/swagger</swagger>
@@ -219,27 +216,17 @@ Available headers include:
     </formats>
     <docHref>http://api.domain.com/docs/edit</docHref>
     <code>
-      <php>
-        <href>http://code.domain.com/phplib/edit.tgz</href>
+      <logic>
+        <href>http://code.domain.com/edit.js</href>
         <md5>0cc175b9c0f1b6a831c399e269772661</md5>
         <recordSpecific>false</recordSpecific>
-      </php>
-      <java>
-        <href>http://code.domain.com/javalib/edit.tgz</href>
-        <md5>0cc175b9c0f1b6a831c399e269772661</md5>
-        <recordSpecific>false</recordSpecific>
-      </java>
-      <ruby>
-        <href>http://code.domain.com/rubylib/edit.tgz</href>
-        <md5>0cc175b9c0f1b6a831c399e269772661</md5>
-        <recordSpecific>false</recordSpecific>
-      </ruby>
+      </logic>
     </code>
   </update>
 </_links>
 ```
 
-<h4>application/cphl+yaml</h4>
+<h4>vnd.cphl+yaml</h4>
 
 ```yaml
 _definition:
@@ -256,7 +243,7 @@ _links:
       - patch
 ```
 
-<h4>application/cphl+yaml+docs+code+formats</h4>
+<h4>vnd.cphl+yaml+docs+code+formats</h4>
 
 ```yaml
 _definition:
@@ -280,16 +267,8 @@ _links:
         schema: http://api.domain.com/docs/api/editSchema.xml
     docHref: http://api.domain.com/docs/edit
     code:
-      php:
-        href: http://code.domain.com/phplib/edit.tgz
-        md5: 0cc175b9c0f1b6a831c399e269772661
-        recordSpecific: false
-      java: 
-        href: http://code.domain.com/javalib/edit.tgz
-        md5: 0cc175b9c0f1b6a831c399e269772661
-        recordSpecific: false
-      ruby: 
-        href: http://code.domain.com/rubylib/edit.tgz
+      logic:
+        href: http://code.domain.com/edit.js
         md5: 0cc175b9c0f1b6a831c399e269772661
         recordSpecific: false
 ```
