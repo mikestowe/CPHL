@@ -1,8 +1,6 @@
 CPHL
 ====
 
-<b>Disclaimer: this is a brain-storming document, and is not in any way final nor concrete.</b>
-
 CPHL, or the Cross-Platform Hypertext Language is a hypertext specification for RESTful APIs.  CPHL is based on HAL, but is designed to allow for greater flexibility, transmission of additional information, and empowerment of resource specific code on demand.
 
 It is also designed to be action driven, rather than resource driven.  This means that a resource may be included multiple times if necessary (ie edit, delete), but described by its title, description, and the methods it utilizes - making it more explicit than other formats.
