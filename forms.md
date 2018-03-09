@@ -96,7 +96,6 @@ form:
       required: true,
       minLength: 3,
       maxLength: 20
-    },
     -
       name: "age",
       type: "text",
